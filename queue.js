@@ -1,6 +1,8 @@
 function connect() {
   return require("amqplib")
-    .connect("amqp://rabbit@fdc4a37dd2dc")
+    .connect(
+      "amqps://ohucpjwp:9oiF4e-OuswFz47QQL94_16wVqEDzfm4@grouse.rmq.cloudamqp.com/ohucpjwp"
+    )
     .then((conn) => conn.createChannel());
 }
 

@@ -1,16 +1,17 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var queue = require("./queue");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const queue = require("./queue");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/", function (req, res) {
-  res.send("Hello from container land!");
-});
+const PORT = process.env.PORT || 3000;
+const HOST = "127.0.0.1";
 
-app.post("/task", function (req, res) {
+const router = express.Router();
+
+router.post("/task", (req, res) => {
   try {
     queue.sendToQueue("queueDocuments", req.body);
     res.json({ message: "Your request will be processed!" });
@@ -19,7 +20,9 @@ app.post("/task", function (req, res) {
   }
 });
 
-var server = app.listen(process.env.PORT, function () {
+app.use("/", router);
+
+var server = app.listen(PORT, function () {
   var port = server.address().port;
-  console.log("Example app listening at http:/localhost:%s", port);
+  console.log("Server Running");
 });
