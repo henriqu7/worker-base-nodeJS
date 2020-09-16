@@ -1,5 +1,5 @@
 console.log("worker started");
-const queue = require("./queue");
+const queue = require("../lib/queue");
 
 var axios = require("axios");
 

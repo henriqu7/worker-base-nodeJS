@@ -1,13 +1,12 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const queue = require("./queue");
+const queue = require("./src/lib/queue");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 3000;
-const HOST = "127.0.0.1";
+const PORT = process.env.PORT || 8080;
 
 const router = express.Router();
 
@@ -23,6 +22,5 @@ router.post("/task", (req, res) => {
 app.use("/", router);
 
 var server = app.listen(PORT, function () {
-  var port = server.address().port;
   console.log("Server Running");
 });
