@@ -1,1 +1,1 @@
-web: npm install; node worker.js; node app.js
+web: npm install; node worker.js & node app.js
