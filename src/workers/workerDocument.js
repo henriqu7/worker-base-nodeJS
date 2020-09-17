@@ -20,9 +20,12 @@ queue.consume("queueDocuments", (message) => {
 
   axios(config)
     .then(function (response) {
+      queue.sendToQueue("queueDocumentsSuccess", req.body);
       console.log(JSON.stringify(response.data));
     })
     .catch(function (error) {
+      queue.sendToQueue("queueDocumentsError", req.body);
+
       console.log(error);
     });
 });
