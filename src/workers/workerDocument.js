@@ -20,11 +20,11 @@ queue.consume("queueDocuments", (message) => {
 
   axios(config)
     .then(function (response) {
-      queue.sendToQueue("queueDocumentsSuccess", req.body);
+      queue.sendToQueue("queueDocumentsSuccess", response);
       console.log(JSON.stringify(response.data));
     })
     .catch(function (error) {
-      queue.sendToQueue("queueDocumentsError", req.body);
+      queue.sendToQueue("queueDocumentsError", error);
 
       console.log(error);
     });
