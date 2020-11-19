@@ -1,6 +1,6 @@
 web:
   build: .
-  command: "bash -c 'npm install; node app.js'"
+  command: "bash -c 'npm install; node src/app.js'"
   working_dir: /app/user
   environment:
     PORT: 8080

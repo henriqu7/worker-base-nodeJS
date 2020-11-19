@@ -12,7 +12,7 @@ queue.consume("queueDocuments", (message) => {
       "https://demo.docusign.net/restapi/v2.1/accounts/c8bca3f3-b65b-412e-9250-588bd0ac3970/envelopes",
     headers: {
       "X-DocuSign-Authentication":
-        '{"Username": "iskander.bittencourt@globant.com","Password": "avanxo123","IntegratorKey": "14ecf375-fc06-4984-b9f9-40817b0cdb38"}',
+        '{"Username": "","Password": "","IntegratorKey": ""}',
       "Content-Type": "application/json",
     },
     data: data,
